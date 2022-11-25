@@ -1,0 +1,38 @@
+<div class="col-lg-12">
+    <img src="https://www.registraduria.gov.co/IMG/png/logo_rnec-3.png" class="rounded">
+    <nb-card>
+        <nb-card-header>
+            ADMINISTRACIÓN DE RESULTADOS
+            <button type="button" class="btn btn-success" (click)="agregar()">
+                <i class="fas fa-plus"></i>
+            </button>
+        </nb-card-header>
+        <table class="table">
+            <tr>
+                <th *ngFor="let columnaActual of nombresColumnas">{{columnaActual}}</th>
+            </tr>
+            <ng-container *ngFor="let resultadoActual of resultados">
+                <tr>
+                   
+                    <td>{{resultadoActual.cedula_candidato}}</td> 
+                    <td>{{resultadoActual.nombre_candidato}}</td>
+                    <td>{{resultadoActual.apellido_candidato}}</td>
+                    <td>{{resultadoActual.numero_mesa}}</td>
+                    <td>{{resultadoActual.nombre_partido}} </td>
+                    <td>{{resultadoActual.votos}}</td> 
+                    <td>
+                        <button type="button" class="btn btn-primary" 
+                                (click)="editar(resultadoActual._id)">
+                            <i class="fas fa-pencil-alt"></i>
+                        </button>
+                        <button type="button" class="btn btn-danger" 
+                                (click)="eliminar(resultadoActual._id)">
+                            <i class="fas fa-solid fa-trash"></i>
+                        </button>
+                    </td>
+                </tr>
+            </ng-container>
+        </table>
+    </nb-card>
+</div>
+

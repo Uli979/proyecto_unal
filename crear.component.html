@@ -1,0 +1,90 @@
+<div class="col-lg-12">
+    <img src="https://www.registraduria.gov.co/IMG/png/logo_rnec-3.png" class="rounded">
+    <nb-card>
+        <nb-card-header *ngIf="modoCreacion">
+            CREAR RESULTADO
+        </nb-card-header>
+        <nb-card-header *ngIf="!modoCreacion">
+            ACTUALIZAR RESULTADO
+        </nb-card-header>
+        <nb-card-body>
+            <div class="row">
+                <div class="col-3">
+                    <label>Cedula Candidato</label>
+                </div>
+                <div class="col-9">
+                    <input class="form-control" type="text" 
+                           [disabled]="!modoCreacion" 
+                           [(ngModel)]="elResultado.cedula_candidato">
+                    <p *ngIf="intentoEnvio && elResultado.cedula_candidato=='' ">Requerido</p>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-3">
+                    <label>Nombre Candidato</label>
+                </div>
+                <div class="col-9">
+                    <input class="form-control" type="text" 
+                           [(ngModel)]="elResultado.nombre_candidato">
+                    <p *ngIf="intentoEnvio && elResultado.nombre_candidato=='' ">Requerido</p>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-3">
+                    <label>Apellido Candidato</label>
+                </div>
+                <div class="col-9">
+                    <input class="form-control" type="text" 
+                           [(ngModel)]="elResultado.apellido_candidato">
+                    <p *ngIf="intentoEnvio && elResultado.apellido_candidato=='' ">Requerido</p>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-3">
+                    <label>Numero de Mesa</label>
+                </div>
+                <div class="col-9">
+                    <input class="form-control" type="text" 
+                           [(ngModel)]="elResultado.numero_mesa">
+                    <p *ngIf="intentoEnvio && elResultado.numero_mesa=='' ">Requerido</p>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-3">
+                    <label>Nombre del Partido</label>
+                </div>
+                <div class="col-9">
+                    <input class="form-control" type="text" 
+                           [(ngModel)]="elResultado.nombre_partido">
+                    <p *ngIf="intentoEnvio && elResultado.nombre_partido=='' ">Requerido</p>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-3">
+                    <label>Votos</label>
+                </div>
+                <div class="col-9">
+                    <input class="form-control" type="text" 
+                           [(ngModel)]="elResultado.votos">
+                    <p *ngIf="intentoEnvio && elResultado.votos=='' ">Requerido</p>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                    <button  *ngIf="modoCreacion" 
+                              class="btn btn-primary btn-block"  (click)="agregar()">
+                        Crear
+                    </button>
+                    <button  *ngIf="!modoCreacion" 
+                              class="btn btn-primary btn-block"  (click)="editar()">
+                        Actualizar
+                    </button>
+            </div>
+        </nb-card-body>
+    </nb-card>
+</div>
